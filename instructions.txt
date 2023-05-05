@@ -1,0 +1,9 @@
+Notification Microservice
+Develop a standalone microservice for notifications, referred to as the Notification Microservice. This microservice will not only add and push notifications to mobile devices using Firebase but also to web applications. Here is the complete flow:
+
+1.	Create an API endpoint that will add a notification to the system. The notification must have a title, payload, priority, app name, status, and user ID. The status can be either "unread" or "read." Assume that another application is calling this endpoint that has a user's collection.
+2.	While adding a notification, fetch the user from the respective service using the provided user ID. The challenge here is that there can be multiple applications, each with its own database. Create multiple database instances and fetch users from their respective databases. The database name will be the same as the app name provided in the first step.
+3.	If the user has a "devices" property, send the notification to their device using Firebase. The notification body is the payload that you received in the first step.
+4.	If you receive an acknowledgment of this notification, update the notification status to "read."
+5.	In addition to supporting push notifications, this microservice must also support email notifications. Create another endpoint for sending emails, which can include or exclude attachments. The following parameters will be provided: (5.1) To: (email address) (5.2) CC: (array of email addresses) (5.3) BCC: (array of email addresses) (5.4) text (HTML format) (5.5) subject (5.6) attachments (files).
+6.	If the email has attachments, upload the files to the server, attach them to the email, send the email, and delete the files from the server.
