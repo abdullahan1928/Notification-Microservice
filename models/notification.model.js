@@ -16,6 +16,10 @@ const notificationSchema = new Schema({
         type: Number,
         required: true
     },
+    app_name: {
+        type: String,
+        required: true
+    },
     status: {
         type: String,
         required: true,
