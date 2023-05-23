@@ -1,6 +1,6 @@
 const Notification = require('../models/notification.model');
 
-export const createNotification = async (req, res) => {
+exports.createNotification = async (req, res) => {
     try {
         // only create if the user is logged in
         if (!req.userID) {
@@ -13,7 +13,7 @@ export const createNotification = async (req, res) => {
     }
 }
 
-export const getNotifications = async (req, res) => {
+exports.getNotifications = async (req, res) => {
     try {
         const notifications = await Notification.find({});
         res.status(200).json(notifications);
@@ -22,10 +22,10 @@ export const getNotifications = async (req, res) => {
     }
 }
 
-export const updateStatus = async (req, res) => {
+exports.updateStatus = async (req, res) => {
     try {
         const notification = await Notification.findById(req.params.id);
-        if (!notification) {
+        if (!notification) {    
             return res.status(404).json({ message: 'Notification not found' });
         }
         notification.status = "read";

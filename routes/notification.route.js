@@ -6,3 +6,5 @@ const router = express.Router();
 router.post("/", createNotification);
 
 router.get("/", getNotifications);
+
+module.exports = router;
